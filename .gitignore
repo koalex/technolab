@@ -1,0 +1,15 @@
+yarn-error.log
+.nyc_output
+logs/*
+!logs/.gitkeep
+
+volumes/*
+!volumes/.gitkeep
+
+node_modules/
+bower_components/
+.idea/
+errors.log
+.DS_Store
+npm-debug.log
+.bash_history deleted
