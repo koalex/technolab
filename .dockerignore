@@ -1,0 +1,15 @@
+.DS_Store
+node_modules/
+.hooks/
+git-hooks.sh
+npm-debug.log
+yarn-error.log
+*.iml
+.git/
+Dockerfile
+docker-compose.yml
+docker/
+.gitignore
+README.md
+node_modules/
+volumes/

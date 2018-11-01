@@ -1,0 +1,40 @@
+version: "3"
+
+services:
+  app:
+    restart: always
+    depends_on: 
+      - mongo
+      - nats
+    build:
+      context: .
+      dockerfile: Dockerfile
+    ports:
+      - 3000:3000
+    volumes:
+      - ./logs:/usr/src/app/logs
+    command: npm start
+  
+  mongo:
+    image: mongo:3.4
+    restart: always
+    environment:   
+      MONGO_INITDB_ROOT_USERNAME: technolabAdmin
+      MONGO_INITDB_ROOT_PASSWORD: dghzt77457gRyjt;paC4MdjYKK5467NZYU
+      MONGO_INITDB_DATABASE: technolab
+      MONGO_DATA_DIR: /data/db
+      MONGO_LOG_DIR: /data/logs
+    volumes:
+      - ./volumes/mongodb/data:/data/db
+      - ./volumes/mongodb/logs:/data/logs
+      - ./mongodb/mongod.conf:/etc/mongod.conf
+    ports:
+      - 27017:27017
+
+  nats:
+    image: nats:alpine
+    restart: always
+    volumes:
+      - ./volumes/nats:/data
+    ports:
+      - 4222:4222
