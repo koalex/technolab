@@ -1,0 +1,40 @@
+{
+    "name": "technolab",
+    "version": "0.1.0",
+    "description": "Микросервисное приложение.",
+    "main": "index.js",
+    "scripts": {},
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/koalex/technolab.git"
+    },
+    "bugs": {
+        "url": "https://github.com/koalex/technolab/issues"
+    },
+    "keywords": [
+        "technolab"
+    ],
+    "author": {
+        "name": "Konstantin Aleksandrov",
+        "email": "alexandrovkm@gmail.com",
+        "url": "https://github.com/koalex"
+    },
+    "license": "SEE LICENSE IN LICENSE.md",
+    "homepage": "https://github.com/koalex/technolab#readme",
+    "engines": {
+        "node": ">=8.9.4",
+        "npm": ">=5",
+        "yarn": "^1.5.1"
+    },
+    "dependencies": {
+        "bunyan": "^1.8.12",
+        "config": "^2.0.1",
+        "cross-env": "^5.2.0",
+        "moleculer": "^0.13.3",
+        "mongoose": "^5.3.8",
+        "mongoose-unique-validator": "^2.0.0",
+        "mongoose-validator": "^2.0.2",
+        "nats": "^1.0.1"
+    },
+    "devDependencies": {}
+}
