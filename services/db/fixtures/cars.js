@@ -1,4 +1,4 @@
-const colors = ['red', 'blue', 'yellow', 'green', 'black', 'white', 'pink', 'orange', 'gold', 'silver'];
+const colors = ['red', 'blue', 'yellow', 'green', 'black', 'white', 'pink', 'orange', 'gold', 'silver', 'antracit', 'grey', 'brown'];
 const carBrands = [
     {brand: 'Seat', models: ['Alhambra', 'Altea', 'Altea XL', 'Arosa', 'Cordoba', 'Cordoba Vario', 'Exeo', 'Ibiza', 'Ibiza ST', 'Exeo ST', 'Leon', 'Leon ST', 'Inca', 'Mii', 'Toledo']},
     {brand: 'Renault', models: ['Captur', 'Clio', 'Clio Grandtour', 'Espace', 'Express', 'Fluence', 'Grand Espace', 'Grand Modus', 'Grand Scenic', 'Kadjar', 'Kangoo', 'Kangoo Express', 'Koleos', 'Laguna', 'Laguna Grandtour', 'Latitude', 'Mascott', 'Mégane', 'Mégane CC', 'Mégane Combi', 'Mégane Grandtour', 'Mégane Coupé', 'Mégane Scénic', 'Scénic', 'Talisman', 'Talisman Grandtour', 'Thalia', 'Twingo', 'Wind', 'Zoé']},
@@ -49,14 +49,24 @@ function randomInteger (min, max) {
     return rand;
 }
 
-module.exports = carBrands.reduce((acc, carBrand) => {
+function fixturesReducer (acc, carBrand) {
     carBrand.models.forEach(model => {
         acc.push({
-            car: `${carBrand.brand} ${model}`,
+            brand: carBrand.brand,
+            model: model,
             color: colors[randomInteger(0, colors.length - 1)],
             price: randomInteger(minPrice, maxPrice)
         });
     });
 
     return acc;
-}, []);
+}
+
+const iterations = 10;
+let fixtures     = [];
+
+for (let i = 0; i <= iterations; i++) {
+    fixtures = fixtures.concat(carBrands.reduce(fixturesReducer, []));
+}
+
+module.exports = fixtures;
